@@ -44,3 +44,23 @@ The Azure service looks like below:
 
 ![alt text](./images/file-share-data-gateway-azure.png "On-premise data gateway on Azure")
 
+When both of these are installed, then the file share may be accessed via the data gateway.
+
+## A simple Logic App workflow triggerd by the file share
+Below is a simple workflow that triggers on a file being added to the Windows Server file share. It then copies it to blob storage.
+
+![alt text](./images/file-share-triggered-workflow.png "file share triggered workflow")
+
+The most important part of this workflow is how the connection is setup to the file trigger. Some sample settings are below:
+
+![alt text](./images/file-share-workflow-trigger-connection.png "file share triggered workflow connection")
+
+As can be seen from above, there needs to be:
+1. a name for the connection
+2. the UNC form of the fileshare *\\MACHINE_NAME\sharename*
+3. credentials for a user on the file server
+4. the on-premise gateway to be used.
+
+Once all of these have been configured, the workflow is now capable of being triggered from adding a file to the file share.
+
+

@@ -89,3 +89,7 @@ This is a much more easy error to debuf and this is much like any other logic ap
 
 ### Workflow sample code
 This repo contains the JSON workflow definition of the above flow. This is under the *workflow* folder
+
+# Summary
+Triggering on Windows file shares presents more challenges that blob or SFTP triggers. The fastest way to get these to work is to install an on-premise data gateway onto the Windows Server virtual machine that hosts the File Server. 
+For the on-premise data gateway to install correctly requires that the user has the correct permissions to create the data gateway.

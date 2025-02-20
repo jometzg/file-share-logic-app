@@ -63,4 +63,29 @@ As can be seen from above, there needs to be:
 
 Once all of these have been configured, the workflow is now capable of being triggered from adding a file to the file share.
 
+## Sample workflow run
+Below is a sample of a successful run of the workflow triggered by a file being added to the share:
 
+![alt text](./images/file-share-workflow-run.png "file share triggered workflow run")
+
+## Troublshooting
+### Trigger not firing
+This is the most complex one and needs all of the moving parts to be in place. Need to check:
+1. by getting a session onto the Windows Server VM, check that you are using the correct file share in server manager
+2. also open up the on premise data gateway app on the Windows Server to check it is connecting
+3. In Azure check whether the on-premise data gateway looks good
+4. In the logic app workflow, check the *trigger history*. If there is an error click through the links to see the nature of the error. The one to click through is the *Outputs link* - this will give more detail on why the trigger did not run.
+
+![alt text](./images/file-share-trigger-history.png "file share trigger history")
+
+Click through the highlighted link.
+
+### Trigger firing, but an error in workflow run
+This is a much more easy error to debuf and this is much like any other logic app:
+1. click on the run
+2. look at the step that fails
+3. look at the properties of the step
+4. for the simple workflow, it will generally be not picking up the filename correctly from the trigger or not getting the content of the file name
+
+### Workflow sample code
+This repo contains the JSON workflow definition of the above flow. This is under the *workflow* folder

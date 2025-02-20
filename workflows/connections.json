@@ -1,0 +1,40 @@
+{
+    "managedApiConnections": {
+        "azureblob-1": {
+            "api": {
+                "id": "/subscriptions/1885038d-f891-46b7-9c02-128ed13a7f06/providers/Microsoft.Web/locations/uksouth/managedApis/azureblob"
+            },
+            "authentication": {
+                "type": "ManagedServiceIdentity"
+            },
+            "connection": {
+                "id": "/subscriptions/1885038d-f891-46b7-9c02-128ed13a7f06/resourceGroups/tower-hamlets-rg/providers/Microsoft.Web/connections/azureblob"
+            },
+            "connectionRuntimeUrl": "https://a2573e020e4a5b55.18.common.logic-uksouth.azure-apihub.net/apim/azureblob/99f776d3f5df4a74ad5d56a355120d63"
+        },
+        "filesystem": {
+            "api": {
+                "id": "/subscriptions/1885038d-f891-46b7-9c02-128ed13a7f06/providers/Microsoft.Web/locations/uksouth/managedApis/filesystem"
+            },
+            "authentication": {
+                "type": "ManagedServiceIdentity"
+            },
+            "connection": {
+                "id": "/subscriptions/1885038d-f891-46b7-9c02-128ed13a7f06/resourceGroups/tower-hamlets-rg/providers/Microsoft.Web/connections/filesystem-2"
+            },
+            "connectionRuntimeUrl": "https://a2573e020e4a5b55.18.common.logic-uksouth.azure-apihub.net/apim/filesystem/a0c794d626e5490db42ddb7834d7490f"
+        }
+    },
+    "serviceProviderConnections": {
+        "AzureBlob": {
+            "displayName": "blob",
+            "parameterSetName": "connectionString",
+            "parameterValues": {
+                "connectionString": "@appsetting('AzureBlob_connectionString')"
+            },
+            "serviceProvider": {
+                "id": "/serviceProviders/AzureBlob"
+            }
+        }
+    }
+}

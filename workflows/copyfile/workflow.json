@@ -1,0 +1,83 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Get_file_content": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "filesystem"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/datasets/default/files/@{encodeURIComponent(encodeURIComponent(triggerBody()?['Name']))}/content",
+                    "queries": {
+                        "inferContentType": true
+                    }
+                },
+                "runAfter": {}
+            },
+            "Create_blob_(V2)": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "azureblob-1"
+                        }
+                    },
+                    "method": "post",
+                    "body": "@body('Get_file_content')",
+                    "headers": {
+                        "ReadFileMetadataFromServer": true
+                    },
+                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('AccountNameFromSettings'))}/files",
+                    "queries": {
+                        "folderPath": "/dest2",
+                        "name": "@triggerBody()?['Name']",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runAfter": {
+                    "Get_file_content": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "When_a_file_is_created_(properties_only)": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "filesystem"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/datasets/default/triggers/batch/onnewfile",
+                    "queries": {
+                        "folderId": "6e202211-2856-4d17-9ded-5beb8b8626b0",
+                        "maxFileCount": 10
+                    }
+                },
+                "recurrence": {
+                    "interval": 1,
+                    "frequency": "Minute"
+                },
+                "splitOn": "@triggerBody()",
+                "metadata": {
+                    "6e202211-2856-4d17-9ded-5beb8b8626b0": "/"
+                }
+            }
+        }
+    },
+    "kind": "Stateful"
+}

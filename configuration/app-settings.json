@@ -1,0 +1,57 @@
+[
+  {
+    "name": "APP_KIND",
+    "value": "workflowApp",
+    "slotSetting": false
+  },
+  {
+    "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+    "value": "InstrumentationKey=REDACTED;IngestionEndpoint=https://uksouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://uksouth.livediagnostics.monitor.azure.com/;ApplicationId=63e7d2f6-375c-4a44-bac7-eacec093c7b5",
+    "slotSetting": false
+  },
+  {
+    "name": "AzureBlob_connectionString",
+    "value": "DefaultEndpointsProtocol=https;AccountName=jjsourceforftp;AccountKey=REDACTED;EndpointSuffix=core.windows.net",
+    "slotSetting": false
+  },
+  {
+    "name": "AzureFunctionsJobHost__extensionBundle__id",
+    "value": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "slotSetting": false
+  },
+  {
+    "name": "AzureFunctionsJobHost__extensionBundle__version",
+    "value": "[1.*, 2.0.0)",
+    "slotSetting": false
+  },
+  {
+    "name": "AzureWebJobsStorage",
+    "value": "DefaultEndpointsProtocol=https;AccountName=towerhamletsrg8cee;AccountKey=REDACTED;EndpointSuffix=core.windows.net",
+    "slotSetting": false
+  },
+  {
+    "name": "FUNCTIONS_EXTENSION_VERSION",
+    "value": "~4",
+    "slotSetting": false
+  },
+  {
+    "name": "FUNCTIONS_WORKER_RUNTIME",
+    "value": "dotnet",
+    "slotSetting": false
+  },
+  {
+    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+    "value": "DefaultEndpointsProtocol=https;AccountName=towerhamletsrg8cee;AccountKey=REDACTED;EndpointSuffix=core.windows.net",
+    "slotSetting": false
+  },
+  {
+    "name": "WEBSITE_CONTENTSHARE",
+    "value": "jjblankeightb7f8",
+    "slotSetting": false
+  },
+  {
+    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+    "value": "~18",
+    "slotSetting": false
+  }
+]
